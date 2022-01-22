@@ -1,0 +1,54 @@
+* {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    display:flex;
+    justify-content: space-between;
+    font-size: 12pt;
+}
+
+#highscore {
+    color:darkslateblue;
+    padding: 20px;
+}
+
+#timer {
+    margin-right: 20px;
+    font-size: 16pt;
+}
+
+.quiz {
+    display:flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#intro h1 {
+    font-size: 18pt;
+}
+
+p {
+    font-size: 14pt;
+}
+
+.hide {
+    display: none;
+    overflow: hidden;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18pt;
+}
+
+#answer-buttons {
+    font-size: 14pt;
+    margin-left: 40%;
+}
+
+li:hover {
+    color:purple
+}
