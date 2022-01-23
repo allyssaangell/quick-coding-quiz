@@ -4,9 +4,14 @@ var results = document.getElementById("results");
 var answerEl = document.getElementById("answer-buttons");
 var startButton = document.getElementById("start-btn");
 var indexQuestion = 0;
-var score = 0;
+var mostRecentScore = 0;
 var timer = document.querySelector("#timer");
 var timerSeconds = 60;
+
+//var nameEntry = document.getElementById("formEntry");
+
+//var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
 
 startButton.addEventListener("click", startQuiz);
 timer.innerHTML = `Time Remaining: 00:${timerSeconds}`;
@@ -15,6 +20,7 @@ function startQuiz() {
   startButton.classList.add("hide");
   questionContainerEl.classList.remove("hide");
   intro.classList.add("hide");
+
 
   var countDown = setInterval(() => {
     timerSeconds--;
@@ -28,8 +34,24 @@ function startQuiz() {
   }, 1000);
 
   displayQuestion();
-  score = 0;
+  mostRecentScore = 0;
 }
+
+// function quizOver() {
+
+//     var username = document.createElement("INPUT");
+//     username.setAttribute("type","text");
+
+
+//     var score = { score: mostRecentScore, name: username};
+ 
+//     highScores.push(score);
+//     highScores.sort((a, b) => b.score - a.score);
+//     highScores.splice(5)
+
+//     localStorage.setItem("highScores", JSON.stringify(highScores));
+// }
+
 
 var questions = [
   {
@@ -69,8 +91,16 @@ var questions = [
 function displayQuestion() {
   if (indexQuestion >= questions.length) {
     //  END OF QUIZ
+    formEntry.classList.remove("hide");
     document.getElementById("high-score-page").innerHTML =
-      "The quiz has ended! Your score: " + score;
+      "The quiz has ended! Your score: " + mostRecentScore;
+
+    document.getElementById("question-container").style.display = "none";
+    document.getElementById("timer").style.display = "none";
+   
+
+  // quizOver();
+
   } else {
     var answerClick = document.getElementById("answer-buttons");
     var question = document.getElementById("question");
@@ -94,8 +124,8 @@ function displayQuestion() {
 function evaluateAndIncrement(event) {
   event.preventDefault();
   if (questions[indexQuestion].correctAnswer === event.target.innerHTML) {
-    score = score + 10;
-    console.log("This is the score " + score);
+    mostRecentScore = mostRecentScore + 10;
+    console.log("This is the score " + mostRecentScore);
     document.getElementById("correct-wrong").innerHTML = "Correct!";
     setTimeout(function () {
       document.getElementById("correct-wrong").innerHTML = "";
@@ -113,15 +143,4 @@ function evaluateAndIncrement(event) {
   displayQuestion();
 }
 
-if (timerSeconds > 0) {
-  clearInterval(countDown);
-  console.log("time remaining");
-} else {
-  //  current score entry?
-}
 
-function highScoreEntry() {}
-
-//highscore entry
-
-//highscores list
