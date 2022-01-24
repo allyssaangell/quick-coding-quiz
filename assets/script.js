@@ -66,8 +66,8 @@ var questions = [
   {
     question:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    answers: ["JavaScript", "Terminal/bash", "For loops", "Console.log"],
-    correctAnswer: "Console.log",
+    answers: ["JavaScript", "Terminal/bash", "For loops", "console.log"],
+    correctAnswer: "console.log",
   },
 ];
 

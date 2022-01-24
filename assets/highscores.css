@@ -17,3 +17,9 @@ h1 {
 header {
     margin-top: 0.25in;
 }
+
+#highScoresList {
+    text-align: center;
+    font-size: 16pt;
+    padding: 10px;
+}
