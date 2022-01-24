@@ -1,25 +1,25 @@
 * {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #tryagain {
-    font-size: 16pt;
-    color:darkslateblue;
-    font-weight: bold;
-    padding: 25px;
+  font-size: 16pt;
+  color: darkslateblue;
+  font-weight: bold;
+  padding: 25px;
 }
 header {
-    margin-top: 0.25in;
+  margin-top: 0.25in;
 }
 
 #highScoresList {
-    text-align: center;
-    font-size: 16pt;
-    padding: 10px;
+  text-align: center;
+  font-size: 16pt;
+  padding: 10px;
 }

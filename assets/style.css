@@ -73,16 +73,16 @@ li:hover {
 }
 
 .form {
-    display: flex;
-    justify-content: center;
-    font-size: 14pt;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 14pt;
+  padding: 20px;
 }
 
 form label {
-    padding: 2px;
+  padding: 2px;
 }
 #topFive {
-    margin-top: 20px;
-    font-size: 14pt;
+  margin-top: 20px;
+  font-size: 14pt;
 }
