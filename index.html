@@ -28,13 +28,18 @@
       </div>
       <div>
       <div id="high-score-page">
+          <h1 id="finalScore"></h1>
     </div>
       <div id="formEntry" class="hide">
         <form class="form">
-            <label for="name">Name: </label><br>
-            <input type="text" id="name" name="name">
+            <label for="username">Name: </label><br>
+            <input type="text" id="username" name="username">
         </form>
-        <button type="button">Submit</button>
+        <button type="button" class="btn" id="submitBtn" onclick="saveHighScore(event)" disabled>Submit</button>
+        <div>
+            <p id="highScoreTitle" class="hide">High Scores</p>
+        </div>
+        <div id="topFive"></div>
       </div> 
     </div>
     </div>

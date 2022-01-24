@@ -7,11 +7,11 @@ var indexQuestion = 0;
 var mostRecentScore = 0;
 var timer = document.querySelector("#timer");
 var timerSeconds = 60;
-
-//var nameEntry = document.getElementById("formEntry");
-
-//var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
+var username = document.getElementById("username");
+var submitBtn = document.getElementById("submitBtn");
+var finalScore = document.getElementById("finalScore");
+var mostRecentScore = localStorage.getItem("mostRecentScore");
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 startButton.addEventListener("click", startQuiz);
 timer.innerHTML = `Time Remaining: 00:${timerSeconds}`;
@@ -20,7 +20,6 @@ function startQuiz() {
   startButton.classList.add("hide");
   questionContainerEl.classList.remove("hide");
   intro.classList.add("hide");
-
 
   var countDown = setInterval(() => {
     timerSeconds--;
@@ -36,22 +35,6 @@ function startQuiz() {
   displayQuestion();
   mostRecentScore = 0;
 }
-
-// function quizOver() {
-
-//     var username = document.createElement("INPUT");
-//     username.setAttribute("type","text");
-
-
-//     var score = { score: mostRecentScore, name: username};
- 
-//     highScores.push(score);
-//     highScores.sort((a, b) => b.score - a.score);
-//     highScores.splice(5)
-
-//     localStorage.setItem("highScores", JSON.stringify(highScores));
-// }
-
 
 var questions = [
   {
@@ -89,7 +72,7 @@ var questions = [
 ];
 
 function displayQuestion() {
-  if (indexQuestion >= questions.length) {
+  if (indexQuestion >= questions.length || timerSeconds < 1) {
     //  END OF QUIZ
     formEntry.classList.remove("hide");
     document.getElementById("high-score-page").innerHTML =
@@ -97,10 +80,35 @@ function displayQuestion() {
 
     document.getElementById("question-container").style.display = "none";
     document.getElementById("timer").style.display = "none";
-   
+    localStorage.setItem("mostRecentScore", mostRecentScore);
+    finalScore.innerText = mostRecentScore;
 
-  // quizOver();
+    username.addEventListener("keyup", () => {
+      submitBtn.disabled = !username.value;
+    });
 
+    saveHighScore = (e) => {
+      e.preventDefault();
+
+      const score = {
+        score: mostRecentScore,
+        name: username.value,
+      };
+      highScores.push(score);
+      highScores.sort((a, b) => b.score - a.score);
+      highScores.splice(5);
+
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+      JSON.parse(window.localStorage.getItem(highScores));
+      console.log(highScores);
+
+      highScores.forEach((element, index) => {
+        console.log(element.name);
+        document.getElementById("topFive").innerHTML +=
+          element.name + " - " + element.score + "<br>";
+      });
+      highScoreTitle.classList.remove("hide");
+    };
   } else {
     var answerClick = document.getElementById("answer-buttons");
     var question = document.getElementById("question");
@@ -142,5 +150,3 @@ function evaluateAndIncrement(event) {
   indexQuestion++;
   displayQuestion();
 }
-
-
