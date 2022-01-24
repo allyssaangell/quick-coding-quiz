@@ -2,14 +2,18 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.container {
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #tryagain {
-    font-size: 12pt;
+    font-size: 16pt;
     color:darkslateblue;
-    padding: 20px;
+    font-weight: bold;
+    padding: 25px;
+}
+header {
+    margin-top: 0.25in;
 }
